@@ -74,23 +74,23 @@ Every step in an automation pipeline either passes or fails. As mentioned in Kno
 
 A basic threshold on the 95th percentile of the response time metric looks like this:
 ```javascript
-    export const options = {
-        thresholds: {
-            // fail the test if 95th percentile response goes above 500ms
-            http_req_duration: ['p(95)<500'],
-        },
-    };
+export const options = {
+    thresholds: {
+        // fail the test if 95th percentile response goes above 500ms
+        http_req_duration: ['p(95)<500'],
+    },
+};
 ```
 You can setup thresholds on any metric in k6 and you can have multiple thresholds per metric. You can also optionally specify that a threshold should immediately abort a test if the threshold is reached. Adding that to the example above would look like this:
 
 ```javascript
-    export const options = {
-        thresholds: {
-            // fail and abort the test if 95th percentile response goes above 500ms
-            // delay the threshold evaluation for 1 min to gather enought data
-            http_req_duration: [{ threshold: 'p(95)<500', abortOnFail: true, delayAbortEval: '1min' }],
-        },
-    };
+export const options = {
+    thresholds: {
+        // fail and abort the test if 95th percentile response goes above 500ms
+        // delay the threshold evaluation for 1 min to gather enought data
+        http_req_duration: [{ threshold: 'p(95)<500', abortOnFail: true, delayAbortEval: '1min' }],
+    },
+};
 ```
 If the test ends with one or more failed thresholds k6 will exit with a non-zero exit code signalling to the CI tool that the load test step failed, halting the build/pipeline from progressing further, and hopefully notifying you so you can take corrective action, but more on notifications further down below.
 
@@ -241,3 +241,29 @@ export function teardown(data) {
 
 ## For k6 cloud
 If you are running cloud tests you can also configure custom email- and webhook [notifications in the k6.io cloud](https://k6.io/docs/cloud/manage/notifications/) GUI. It includes several pre-made templates, such as for Slack and Microsoft Teams.
+
+# 🔗 Resources
+
+- K6 docs: https://k6.io/docs/
+- Installation https://k6.io/docs/get-started/installation/
+- Running k6 https://k6.io/docs/get-started/running-k6/
+- Results output https://k6.io/docs/get-started/results-output/
+- k6 resources https://k6.io/docs/get-started/resources/
+- Metrics https://k6.io/docs/using-k6/metrics/
+- Checks https://k6.io/docs/using-k6/checks/
+- Thresholds https://k6.io/docs/using-k6/thresholds/
+- Options https://k6.io/docs/using-k6/k6-options/
+- Scenarios https://k6.io/docs/using-k6/scenarios/
+
+## 👩‍💻 Author 
+
+<table>
+   <tr>
+     <td align="center">
+        <a href="https://github.com/MarcosLudgerio" target="_blank" rel="Github">
+         <img style="border-radius: 50%;" src="https://avatars0.githubusercontent.com/u/43012976?s=460&u=1163c04d9f35b577063b3f6550ae520c4dd2f866&v=4" width="100px;" alt=""/>
+        </a>
+        <br/><sub><b>Marcos Ludgério</b></sub>
+     </td>
+   </tr>
+</table>
