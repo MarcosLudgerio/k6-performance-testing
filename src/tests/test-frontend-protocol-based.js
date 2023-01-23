@@ -1,7 +1,7 @@
 import http from 'k6/http';
 import { sleep, check } from 'k6';
 
-export function Homepage() {
+export default function () {
     const params = {
         'sec-ch-ua': '"Chromium";v="94", "Google Chrome";v="94", ";Not A Brand";v="99"',
         'accept-encoding': 'gzip, deflate, br',
