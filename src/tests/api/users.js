@@ -21,6 +21,12 @@ export const options = {
             iterations: 10,
             startTime: "10s",
         },
+        per_vu_scenario_2: {
+            executor: "per-vu-iterations",
+            vus: 100,
+            iterations: 50,
+            startTime: "30s",
+        },
     },
     thresholds: {
         http_req_failed: ['rate<0.01'],
@@ -60,6 +66,5 @@ export default function () {
             'is body not empty': res.json().length != 0,
             'is name valid': res.json().name = user.name
         });
-        console.log(res.status)
     });
 }
