@@ -1,0 +1,13 @@
+{
+    "user_valid": [
+        {
+            "name": "Marcos",
+            "lastname": "Lugério",
+            "email": "raimundo.marcos@dcx.ufpb.br",
+            "password": "senh@850",
+            "bio": "A nice guy",
+            "site": "http://github.com/MarosLudgerio",
+            "urlImage": "http://github.com/MarosLudgerio.png"
+        }
+    ]
+}
